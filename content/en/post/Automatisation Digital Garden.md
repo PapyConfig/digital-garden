@@ -8,6 +8,7 @@ showToc: true
 # My Workflow: From Note-Taking to Docker Deployment
 
 Welcome to this first article! To inaugurate this site, I'll explain how it's generated. The goal was simple: **write in Obsidian, do a simple `git push`, and let the "magic" happen until final deployment.**
+<!--more-->
 
 Here's the architecture of this system and why I chose it this way.
 
