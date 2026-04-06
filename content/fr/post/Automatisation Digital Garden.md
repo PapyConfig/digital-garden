@@ -42,12 +42,12 @@ for d in [TEMP_NOTES, TEMP_IMAGES]:
     os.makedirs(d)
 
 def process_content(content):
-    # 1. Conversion des liens [Note]({{< ref "Note.md" >}}) -> [Note]({{< ref "Note.md" >}})
+    # 1. Conversion des liens [[Note]] -> [Note]({{< ref "Note.md" >}})
     content = re.sub(r'\\[\\[([^|\\]]+)\\]\\]', r'[\1]({{< ref "\1.md" >}})', content)
-    # 2. Conversion images ![img.png]({{< ref "img.png.md" >}}) -> ![](/images/img.png)
+    # 2. Conversion images ![[img.png]] -> ![](/images/img.png)
     images = re.findall(r'!\\[\\[(.*?)\\]\\]', content)
     for img in images:
-        content = content.replace(f'![{img}]({{< ref "{img}.md" >}})', f'![](/images/{img})')
+        content = content.replace(f'![[{img}]]', f'![](/images/{img})')
         if os.path.exists(os.path.join(ATTACHMENTS_DIR, img)):
             shutil.copy(os.path.join(ATTACHMENTS_DIR, img), TEMP_IMAGES)
     return content
