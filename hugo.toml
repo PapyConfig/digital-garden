@@ -1,4 +1,142 @@
-baseURL = 'https://rohmer.beer/'
-locale = 'en-us'
-title = 'Rohmer Digital Garden'
+baseURL = 'http://localhost:1313/'
+title = 'Digital Garden'
 theme = 'heyo'
+ignoreLogs = ['warning-goldmark-raw-html']
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.59.1"
+
+languageCode = "en"
+defaultContentLanguage = "fr"
+defaultContentLanguageInSubdir = false
+summarylength = 100
+enableEmoji = true
+enableRobotsTXT = true
+[pagination]
+    disableAliases = false
+    pagerSize = 4
+    path = ''
+
+# Disqus comments
+# https://gohugo.io/templates/internal/#configure-disqus
+# disqusShortname = ""
+
+# Google Analytics
+# https://gohugo.io/templates/internal/#google-analytics
+# googleAnalytics = ""
+
+[params.author]
+    name = "Léo Rohmer"
+    email = "leo@rohmer.beer"
+
+[params]
+    title = "Je suis Léo Rohmer"
+    description = "Call me Papy"
+    profilePicture = "images/profile.png"
+    favicon = "favicons/"
+    customCss = []
+    customJs = []
+    displayMode = "light"
+    images = ['images/profile.png']
+
+[taxonomies]
+    series = 'series'
+    categories = 'categories'
+    tags = 'tags'
+
+# Sketch settings
+# you can also enable or disable it per page
+[params.sketch] 
+    enable = true 
+    displayOptions = false
+    # Graph, Digital Rain, or Circles
+    use = "Graph"
+    # JSON that is passed to the sketch constructor
+    # You can check all the possible configurations in
+    startingConfig = """{
+        "kind": "katakana",
+        "nStreams": 10
+    }"""
+
+## Math settings
+[params.math]
+    enable = true # global support, you can also configure it per page
+    use = "mathjax" # katex or mathjax, default is mathjax
+
+## Social links
+[[params.socialIcons]]
+icon = "fab fa-linkedin" # Font-awesome icon
+title = "Linkedin"
+url = "https://www.linkedin.com/in/leorohmer/"
+
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/PapyConfig"
+
+[[params.socialIcons]]
+icon = "fas fa-envelope"
+title = "e-mail"
+url = "mailto:leo@rohmer.beer"
+
+[languages]
+    [languages.en]
+        languageCode = "en"
+        contentDir = "content/en"
+        weight = 1
+        languageName = "en"
+        [languages.en.menus]
+            [[languages.en.menus.main]]
+                name = "Home"
+                pageRef = "/"
+                weight = 1
+            [[languages.en.menus.main]]
+                name = "Docs"
+                pageRef = "/post"
+                weight = 2
+            [[languages.en.menus.main]]
+                name = "Curriculum Vitea"
+                pageRef = "/about"
+                weight = 3
+    [languages.fr]
+        languageCode = "fr"
+        contentDir = "content/fr"
+        weight = 2
+        languageName = "fr"
+        [languages.fr.menus]
+            [[languages.fr.menus.main]]
+                name = "Home"
+                pageRef = "/"
+                weight = 1
+            [[languages.fr.menus.main]]
+                name = "Docs"
+                pageRef = "/post"
+                weight = 2
+            [[languages.fr.menus.main]]
+                name = "Curriculum Vitae"
+                pageRef = "/about"
+                weight = 3
+
+[markup]
+    [markup.goldmark.renderer]
+        unsafe = true
+    [markup.tableOfContents]
+        endLevel = 6
+        startLevel = 1
+    [markup.highlight]
+        anchorLineNos = false
+        codeFences = true
+        guessSyntax = false
+        hl_Lines = ""
+        lineAnchors = ""
+        lineNoStart = 1
+        lineNos = false
+        lineNumbersInTable = true
+        noClasses = true
+        style = "dracula"
+        tabWidth = 4
+
+# Hugo will ignore these files, .rmd and .rmarkdown are taken care by blogdown
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown", "_files$", "_cache$"]

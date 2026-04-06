@@ -10,13 +10,14 @@ categories:
     - heyo
 ---
 
-Article de test pour les glyphes CJK.
+Test post for CJK Glyphs.
 
 <!--more-->
 
-Dans une [issue GitHub](https://github.com/LucasVadilho/heyo-hugo-theme/issues/2), _@luobo202254_ a signalé que la police par défaut du navigateur pour les caractères chinois ne s'accordait pas bien avec `Computer Modern`. Nous avons testé plusieurs variantes et choisi `FandolKai-Regular` comme police par défaut[^1] pour {{< theme >}}. La police provient de [CTAN](https://ctan.org/tex-archive/fonts/fandol) et est publiée sous licence GNU GPL.
+In a [GitHub issue](https://github.com/LucasVadilho/heyo-hugo-theme/issues/2), _@luobo202254_ raised that the browser's default font for Chinese characters didn't play well with `Computer Modern`. We tried some variations and chose `FandolKai-Regular` to be the default[^1] for {{< theme >}}, the font was obtained from [CTAN](https://ctan.org/tex-archive/fonts/fandol), and is under the GNU GPL license.
 
-# Exemples[^2]
+# Samples[^2]
+
 {{< callout 
     kind="note"
     title="🇨🇳 Chinese"
@@ -43,10 +44,9 @@ Dans une [issue GitHub](https://github.com/LucasVadilho/heyo-hugo-theme/issues/2
 
 # Choose your own fonts
 
+In `config.toml`, under `[params]`, there's `customCss`, on that param you can point to a CSS file that will override the defaults.
 
-Dans `config.toml`, sous `[params]`, il y a `customCss` — ce paramètre peut pointer vers un fichier CSS qui remplacera les valeurs par défaut.
-
-Par exemple, si vous avez `customCss = ['customCss/my-font-family.css']` dans `config.toml` et que vous créez un fichier `exampleSite/static/customCss/my-font-family.css` contenant :
+For example, let's say you have `customCSS = ['customCss/my-font-family.css']` in `config.toml` and you create a file at `exampleSite/static/customCss/my-font-family.css` with the following:
 
 ```css
 * {
@@ -54,9 +54,9 @@ Par exemple, si vous avez `customCss = ['customCss/my-font-family.css']` dans `c
 }
 ```
 
-Votre site devrait maintenant ressembler à ceci :
+Your site should look something like this now:
 
-![exampleSite avec une police sans-serif](/images/my-font-family.png)
+![exampleSite with a sans serif font](/images/my-font-family.png)
 
-[^1]: Il est assez simple de modifier les valeurs par défaut — suivez juste les instructions de la section [Choisir vos propres polices](#choose-your-own-fonts).
-[^2]: Tous les textes d'exemple ont été générés sur https://generator.lorem-ipsum.info.
+[^1]: Note that it's pretty easy to change the defaults, just follow [these](#choose-your-own-fonts) instructions.
+[^2]: All the samples text were generated at https://generator.lorem-ipsum.info.
