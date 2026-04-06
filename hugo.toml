@@ -2,6 +2,7 @@ baseURL = 'http://localhost:1313/'
 title = 'Digital Garden'
 theme = 'heyo'
 ignoreLogs = ['warning-goldmark-raw-html']
+refLinksErrorLevel = "WARNING"
 
 [module]
   [module.hugoVersion]
