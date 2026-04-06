@@ -1,0 +1,44 @@
+# Hugo generated files
+/public/
+/resources/_gen/
+/resources/_gen/*
+
+# Hugo cache and build artifacts
+.hugo_build.lock
+hugo_stats.json
+
+# Node modules and package manager logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*~
+*.swp
+*.swo
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# Environment files
+.env
+.env.*.local
+
+# SASS / cache
+.sass-cache/
+.cache/
+
+# Optional: ignore theme node_modules
+/themes/*/node_modules/
