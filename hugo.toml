@@ -1,3 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://rohmer.beer/'
 locale = 'en-us'
-title = 'My New Hugo Project'
+title = 'Rohmer Digital Garden'
+theme = 'heyo'
