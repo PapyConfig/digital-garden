@@ -32,5 +32,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
+          file: DOCKERFILE
           push: true
           tags: PapyConfig/digital-garden:latest
