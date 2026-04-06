@@ -4,7 +4,6 @@ date: 2026-04-05
 draft: false
 tags: [Automation, Obsidian, Hugo, Docker, CI-CD]
 ---
-
 # Mon Workflow : De la prise de note au déploiement Docker
 
 Bienvenue sur ce premier article ! Pour inaugurer ce site, je vais vous expliquer comment il est généré. L'objectif était simple : **écrire dans Obsidian, faire un simple `git push`, et laisser la "magie" opérer jusqu'au déploiement final.**
