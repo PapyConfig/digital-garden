@@ -5,7 +5,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: digital-garden
+  USER_LOWER: papyconfig
 
 jobs:
   build-deploy:
@@ -38,4 +39,4 @@ jobs:
           context: .
           file: DOCKERFILE
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.USER_LOWER }}/${{ env.IMAGE_NAME }}:latest
