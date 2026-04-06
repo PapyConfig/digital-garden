@@ -3,6 +3,7 @@ title: "Comment j'ai automatisé mon Digital Garden avec Obsidian, Hugo et Docke
 date: 2026-04-05
 draft: false
 tags: [Automation, Obsidian, Hugo, Docker, CI-CD]
+showToc: true
 ---
 # Mon Workflow : De la prise de note au déploiement Docker
 
