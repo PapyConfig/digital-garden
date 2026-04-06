@@ -32,7 +32,7 @@ enableRobotsTXT = true
     email = "leo@rohmer.beer"
 
 [params]
-    title = "Je suis Léo Rohmer"
+    title = "I'm Léo Rohmer"
     description = "Call me Papy"
     profilePicture = "images/profile.png"
     favicon = "favicons/"

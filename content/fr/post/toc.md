@@ -9,7 +9,6 @@ categories:
 showToc: true
 ---
 
-```
 Dans {{< theme >}} nous pouvons utiliser la barre latérale pour afficher une Table des matières !
 
 <!--more-->
