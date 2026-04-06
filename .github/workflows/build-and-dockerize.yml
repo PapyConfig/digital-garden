@@ -34,4 +34,4 @@ jobs:
           context: .
           file: DOCKERFILE
           push: true
-          tags: papyconfig/digital-garden:latest
+          tags: ghcr.io/papyconfig/digital-garden:latest
