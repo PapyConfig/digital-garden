@@ -79,7 +79,7 @@ url = "https://github.com/PapyConfig"
 [[params.socialIcons]]
 icon = "fas fa-envelope"
 title = "e-mail"
-url = "mailto:leo@rohmer.beer"
+url = "mailto:leo@rohmes.fr"
 
 [languages]
     [languages.en]
