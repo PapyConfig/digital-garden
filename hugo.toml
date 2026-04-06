@@ -10,7 +10,7 @@ refLinksErrorLevel = "WARNING"
     min = "0.59.1"
 
 languageCode = "en"
-defaultContentLanguage = "fr"
+defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 summarylength = 100
 enableEmoji = true
