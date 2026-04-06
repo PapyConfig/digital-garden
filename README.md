@@ -60,7 +60,3 @@ Important : build du site (`hugo --minify`) doit être exécuté avant la constr
 ## Licence
 
 Consultez le fichier `LICENSE` à la racine du dépôt.
-
----
-
-Si vous voulez que j'ajoute une section supplémentaire (déploiement, preview, ou instructions locales détaillées), dites-moi quoi inclure.
