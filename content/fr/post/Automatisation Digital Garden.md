@@ -32,37 +32,106 @@ import os
 import re
 import shutil
 
-# Chemins
-SOURCE_DIR = '50 - Digital Garden'
-ATTACHMENTS_DIR = '03 - Resources'
-TEMP_NOTES = 'processed_notes'
-TEMP_IMAGES = 'processed_images'
+# Configuration
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
+SOURCE_DIR = os.path.join(ROOT_DIR, '50 - Digital Garden')
+ATTACHMENTS_DIR = os.path.join(ROOT_DIR, '03 - Resources')
+TEMP_NOTES = os.path.join(ROOT_DIR, 'processed_notes')
+TEMP_IMAGES = os.path.join(ROOT_DIR, 'processed_images')
 
-# Nettoyage et création des dossiers
+# Vérifie que les dossiers source existent
+if not os.path.isdir(SOURCE_DIR):
+    raise FileNotFoundError(f"SOURCE_DIR introuvable : {SOURCE_DIR}")
+if not os.path.isdir(ATTACHMENTS_DIR):
+    raise FileNotFoundError(f"ATTACHMENTS_DIR introuvable : {ATTACHMENTS_DIR}")
+
+# Nettoyage et création des dossiers de base
 for d in [TEMP_NOTES, TEMP_IMAGES]:
     if os.path.exists(d): shutil.rmtree(d)
     os.makedirs(d)
 
 def process_content(content):
-    # 1. Conversion des liens [[Note]] -> [Note]({{< ref "Note.md" >}})
-    content = re.sub(r'\\[\\[([^|\\]]+)\\]\\]', r'[\1]({{< ref "\1.md" >}})', content)
-    # 2. Conversion images ![[img.png]] -> ![](/images/img.png)
-    images = re.findall(r'!\\[\\[(.*?)\\]\\]', content)
+    """Transformations complètes : Code, Callouts, Liens, Images."""
+    
+    # 1. Protection des blocs de code (``` ... ```)
+    code_blocks = []
+    def save_code_block(match):
+        code_blocks.append(match.group(0))
+        return f"%%CODE_BLOCK_{len(code_blocks)-1}%%"
+
+    content = re.sub(r'```[\s\S]*?```', save_code_block, content)
+
+    # 2. Transformation des Images ![[img.png]] -> Hugo path
+    images = re.findall(r'!\[\[(.*?)\]\]', content)
     for img in images:
         content = content.replace(f'![[{img}]]', f'![](/images/{img})')
-        if os.path.exists(os.path.join(ATTACHMENTS_DIR, img)):
-            shutil.copy(os.path.join(ATTACHMENTS_DIR, img), TEMP_IMAGES)
+        img_source = os.path.join(ATTACHMENTS_DIR, img)
+        if os.path.exists(img_source):
+            shutil.copy(img_source, TEMP_IMAGES)
+
+    # 3. Transformation des Liens Obsidian [[Note]] -> Hugo ref
+    def replace_link(match):
+        note_name = match.group(1)
+        clean_name = note_name.split('|')[0]
+        return f'[{note_name}]({{{{< ref "{clean_name}.md" >}}}})'
+
+    content = re.sub(r'\[\[([^\]]+)\]\]', replace_link, content)
+
+    # 4. Transformation des Callouts Obsidian -> Hugo Shortcode
+    def replace_callout(match):
+        block = match.group(1)
+        lines = block.split('\n')
+        if not lines:
+            return block
+
+        first_line = lines[0].lstrip('> ').strip()
+        if not first_line.startswith('[!') or ']' not in first_line:
+            return block
+
+        type_end = first_line.find(']')
+        kind = first_line[2:type_end].lower()
+        title_part = first_line[type_end+1:].strip()
+        title = title_part if title_part else kind.capitalize()
+
+        body_lines = []
+        for line in lines[1:]:
+            if line.startswith('> '):
+                body_lines.append(line[2:].rstrip())
+            elif line.startswith('>'):
+                body_lines.append(line[1:].rstrip())
+            else:
+                body_lines.append(line.rstrip())
+
+        body_content = ' '.join(line.strip() for line in body_lines if line.strip()).replace('"', '\\"')
+        return f'{{{{< callout kind="{kind}" title="{title}" content="{body_content}" >}}}}'
+
+    callout_pattern = re.compile(r'(^> \[![^\]\n]+\].*(?:\n(?!\s*$).*)*)', flags=re.MULTILINE)
+    content = callout_pattern.sub(replace_callout, content)
+
+    # 5. Restauration des blocs de code
+    for i, block in enumerate(code_blocks):
+        content = content.replace(f"%%CODE_BLOCK_{i}%%", block)
+        
     return content
 
-# Execution pour chaque fichier .md
-for filename in os.listdir(SOURCE_DIR):
-    if filename.endswith(".md"):
-        with open(os.path.join(SOURCE_DIR, filename), 'r') as f:
-            content = f.read()
-            if "draft: false" in content:
+# Exploration récursive
+for dirpath, dirnames, filenames in os.walk(SOURCE_DIR):
+    for filename in filenames:
+        if filename.endswith(".md"):
+            file_path = os.path.join(dirpath, filename)
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
                 new_content = process_content(content)
-                with open(os.path.join(TEMP_NOTES, filename), 'w') as out:
+                
+                rel_dir = os.path.relpath(dirpath, SOURCE_DIR)
+                dest_dir = os.path.join(TEMP_NOTES, rel_dir)
+                os.makedirs(dest_dir, exist_ok=True)
+                
+                with open(os.path.join(dest_dir, filename), 'w', encoding='utf-8') as out:
                     out.write(new_content)
+
+print("✅ Terminé : Callouts convertis et fichiers MD traités.")
 ```
 
 ---
@@ -73,8 +142,7 @@ Le déploiement se fait en deux étapes synchronisées.
 ### Étape 1 : Synchronisation (Dépôt Obsidian)
 Dès qu'un `push` est détecté, GitHub Actions lance le script Python et pousse les fichiers propres vers le dépôt Hugo.
 
-> [!info] Note
-Cela nécessite un `GH_PAT` (Personal Access Token) configuré dans les secrets du repo.
+{{< callout kind="info" title="Note" content="Cela nécessite un `GH_PAT` (Personal Access Token) configuré dans les secrets du repo." >}}
 
 ```yaml
 name: Push Processed Notes to Hugo
@@ -89,24 +157,48 @@ jobs:
       - name: Checkout Obsidian Repo
         uses: actions/checkout@v3
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Process Notes
         run: python3 "03 - Resources/process_notes.py"
 
       - name: Pousser vers le Repo Hugo
         env:
-          API_TOKEN_GITHUB: ${{ secrets.GH_PAT }}
+          API_TOKEN_GITHUB: ${{ secrets.CR_PAT }}
         run: |
-          git clone https://x-access-token:${API_TOKEN_GITHUB}@github.com/PapyConfig/digital-garden.git hugo-dest
+          set -e
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions[bot]"
           
-          # Copie des notes et des images
-          cp -r processed_notes/* hugo-dest/content/posts/
-          mkdir -p hugo-dest/static/images/
-          cp -r processed_images/* hugo-dest/static/images/
+          # Clone du repo cible
+          git clone --depth 1 https://x-access-token:${API_TOKEN_GITHUB}@github.com/PapyConfig/digital-garden.git hugo-dest
           
+          # 1. NETTOYAGE SÉCURISÉ
+          # On supprime le contenu, mais on ne s'arrête pas si le dossier n'existe pas
+          rm -rf hugo-dest/content 2>/dev/null || true
+          
+          # 2. RÉCRÉATION DES DOSSIERS
+          # Le -p permet de créer toute l'arborescence sans erreur
+          mkdir -p hugo-dest/content
+          
+          # 3. COPIE DES DONNÉES TRAITÉES
+          # On copie le contenu de nos dossiers temporaires vers le repo Hugo
+          cp -a processed_notes/. hugo-dest/content/
+          cp -a processed_images/. hugo-dest/static/images/
+          
+          # 4. ENVOI
           cd hugo-dest
           git add .
-          git commit -m "Sync Obsidian: $(date +'%Y-%m-%d %H:%M')" || exit 0
-          git push origin main
+          # On évite de planter si rien n'a changé
+          if git diff --staged --quiet; then
+            echo "Rien à committer, le jardin est déjà à jour."
+            exit 0
+          fi
+          git commit -m "Sync Obsidian (with callouts): $(date +'%Y-%m-%d %H:%M')"
+          git push origin master
 ```
 
 ### Étape 2 : Build & Release (Dépôt Hugo)
@@ -126,7 +218,12 @@ EXPOSE 80
 name: Build Hugo and Dockerize
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: digital-garden
+  USER_LOWER: papyconfig
 
 jobs:
   build-deploy:
@@ -136,6 +233,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: recursive # Important pour ton thème Hugo
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -146,19 +244,30 @@ jobs:
       - name: Build Hugo Site
         run: hugo --minify
 
-      - name: Login to DockerHub (ou autre)
+      - name: Login to GHCR
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.CR_PAT }}
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
           context: .
+          file: DOCKERFILE
           push: true
-          tags: PapyConfig/digital-garden:latest
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.USER_LOWER }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.USER_LOWER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+      - name: Trigger Webhook
+        run: curl -X GET -u "n8n:${{ secrets.WEBHOOK_PASSWORD }}" "https://n8n.rohmer.beer/webhook/762e85af-325b-4d5d-8729-1835dd0ca177"
 ```
+
+{{< callout kind="info" title="Webhook" content="Vous remarquerez que j'utilise un webhook afin de relancer une stack docker-compose pour tirer à nouveau la dernière image disponible du Digital Garden et mettre à jour le site web automatiquement." >}}
 
 ---
 
