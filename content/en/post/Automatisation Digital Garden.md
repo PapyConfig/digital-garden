@@ -65,7 +65,8 @@ for filename in os.listdir(SOURCE_DIR):
           out.write(new_content)
 ```
 
----
+> [!important] Note
+Need to work on callout also
 
 ## 3. The GitHub Actions Pipeline
 Deployment happens in two synchronized steps.
