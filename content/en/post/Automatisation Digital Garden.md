@@ -134,8 +134,6 @@ for dirpath, dirnames, filenames in os.walk(SOURCE_DIR):
 print("✅ Terminé : Callouts convertis et fichiers MD traités.")
 ```
 
-{{< callout kind="alert" title="Note" content="Need to work on callout also" >}}
-
 ## 3. The GitHub Actions Pipeline
 Deployment happens in two synchronized steps.
 
@@ -157,24 +155,48 @@ jobs:
       - name: Checkout Obsidian Repo
         uses: actions/checkout@v3
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Process Notes
         run: python3 "03 - Resources/process_notes.py"
 
-      - name: Push to Hugo Repo
+      - name: Pousser vers le Repo Hugo
         env:
-          API_TOKEN_GITHUB: ${{ secrets.GH_PAT }}
+          API_TOKEN_GITHUB: ${{ secrets.CR_PAT }}
         run: |
-          git clone https://x-access-token:${API_TOKEN_GITHUB}@github.com/PapyConfig/digital-garden.git hugo-dest
+          set -e
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions[bot]"
           
-          # Copy notes and images
-          cp -r processed_notes/* hugo-dest/content/posts/
-          mkdir -p hugo-dest/static/images/
-          cp -r processed_images/* hugo-dest/static/images/
+          # Clone du repo cible
+          git clone --depth 1 https://x-access-token:${API_TOKEN_GITHUB}@github.com/PapyConfig/digital-garden.git hugo-dest
           
+          # 1. NETTOYAGE SÉCURISÉ
+          # On supprime le contenu, mais on ne s'arrête pas si le dossier n'existe pas
+          rm -rf hugo-dest/content 2>/dev/null || true
+          
+          # 2. RÉCRÉATION DES DOSSIERS
+          # Le -p permet de créer toute l'arborescence sans erreur
+          mkdir -p hugo-dest/content
+          
+          # 3. COPIE DES DONNÉES TRAITÉES
+          # On copie le contenu de nos dossiers temporaires vers le repo Hugo
+          cp -a processed_notes/. hugo-dest/content/
+          cp -a processed_images/. hugo-dest/static/images/
+          
+          # 4. ENVOI
           cd hugo-dest
           git add .
-          git commit -m "Sync Obsidian: $(date +'%Y-%m-%d %H:%M')" || exit 0
-          git push origin main
+          # On évite de planter si rien n'a changé
+          if git diff --staged --quiet; then
+            echo "Rien à committer, le jardin est déjà à jour."
+            exit 0
+          fi
+          git commit -m "Sync Obsidian (with callouts): $(date +'%Y-%m-%d %H:%M')"
+          git push origin master
 ```
 
 ### Step 2: Build & Release (Hugo Repository)
@@ -194,7 +216,12 @@ EXPOSE 80
 name: Build Hugo and Dockerize
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: digital-garden
+  USER_LOWER: papyconfig
 
 jobs:
   build-deploy:
@@ -203,7 +230,8 @@ jobs:
       - name: Checkout Hugo Repo
         uses: actions/checkout@v3
         with:
-          submodules: recursive # Important for your Hugo theme
+          submodules: recursive # Important pour ton thème Hugo
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -214,19 +242,30 @@ jobs:
       - name: Build Hugo Site
         run: hugo --minify
 
-      - name: Login to DockerHub (or other)
+      - name: Login to GHCR
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.CR_PAT }}
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
           context: .
+          file: DOCKERFILE
           push: true
-          tags: PapyConfig/digital-garden:latest
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.USER_LOWER }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.USER_LOWER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+      - name: Trigger Webhook
+        run: curl -X GET -u "n8n:${{ secrets.WEBHOOK_PASSWORD }}" "https://n8n.rohmer.beer/webhook/762e85af-325b-4d5d-8729-1835dd0ca177"
 ```
+
+{{< callout kind="info" title="Webhook" content="You will notice that I use a webhook to restart a docker-compose stack to repull the latest available image of the Digital Garden to automatically update the website." >}}
 
 ---
 
