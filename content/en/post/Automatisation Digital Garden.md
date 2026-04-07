@@ -32,37 +32,71 @@ import os
 import re
 import shutil
 
-# Paths
+# Configuration
 SOURCE_DIR = '50 - Digital Garden'
 ATTACHMENTS_DIR = '03 - Resources'
 TEMP_NOTES = 'processed_notes'
 TEMP_IMAGES = 'processed_images'
 
-# Cleanup and create folders
+# Nettoyage et création des dossiers de base
 for d in [TEMP_NOTES, TEMP_IMAGES]:
-  if os.path.exists(d): shutil.rmtree(d)
-  os.makedirs(d)
+    if os.path.exists(d): shutil.rmtree(d)
+    os.makedirs(d)
 
 def process_content(content):
-  # 1. Convert [[Note]] links -> [Note]({{< ref "Note.md" >}})
-  content = re.sub(r'\\[\\[([^|\\]]+)\\]\\]', r'[\1]({{< ref "\1.md" >}})', content)
-  # 2. Convert images ![[img.png]] -> ![](/images/img.png)
-  images = re.findall(r'!\\[\\[(.*?)\\]\\]', content)
-  for img in images:
-    content = content.replace(f'![[{img}]]', f'![](/images/{img})')
-    if os.path.exists(os.path.join(ATTACHMENTS_DIR, img)):
-      shutil.copy(os.path.join(ATTACHMENTS_DIR, img), TEMP_IMAGES)
-  return content
+    """Convertit les liens Obsidian en Hugo en épargnant les blocs de code."""
+    
+    # 1. Protection des blocs de code (``` ... ```)
+    # On extrait les blocs de code et on les remplace par un placeholder temporaire
+    code_blocks = []
+    def save_code_block(match):
+        code_blocks.append(match.group(0))
+        return f"%%CODE_BLOCK_{len(code_blocks)-1}%%"
 
-# Execute for each .md file
-for filename in os.listdir(SOURCE_DIR):
-  if filename.endswith(".md"):
-    with open(os.path.join(SOURCE_DIR, filename), 'r') as f:
-      content = f.read()
-      if "draft: false" in content:
-        new_content = process_content(content)
-        with open(os.path.join(TEMP_NOTES, filename), 'w') as out:
-          out.write(new_content)
+    # Regex pour capturer les blocs multi-lignes ```
+    content = re.sub(r'```[\s\S]*?```', save_code_block, content)
+
+    # 2. Transformation des liens et images (Uniquement sur le texte hors code)
+    
+    # Liens [Note]({{< ref "Note.md" >}}) -> [Note]({{< ref "Note.md" >}})
+    content = re.sub(r'\[\[([^|\]]+)\]\]', r'[\1]({{< ref "\1.md" >}})', content)
+    
+    # Images ![img.png]({{< ref "img.png.md" >}}) -> ![](/images/img.png)
+    images = re.findall(r'!\[\[(.*?)\]\]', content)
+    for img in images:
+        content = content.replace(f'![{img}]({{< ref "{img}.md" >}})', f'![](/images/{img})')
+        img_source = os.path.join(ATTACHMENTS_DIR, img)
+        if os.path.exists(img_source):
+            shutil.copy(img_source, TEMP_IMAGES)
+
+    # 3. Restauration des blocs de code
+    for i, block in enumerate(code_blocks):
+        content = content.replace(f"%%CODE_BLOCK_{i}%%", block)
+        
+    return content
+
+# Exploration récursive
+for dirpath, dirnames, filenames in os.walk(SOURCE_DIR):
+    for filename in filenames:
+        if filename.endswith(".md"):
+            file_path = os.path.join(dirpath, filename)
+            
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+                
+                # TRANSFORMATION (Appliquée à tous les fichiers .md désormais)
+                new_content = process_content(content)
+                
+                # Calcul du chemin relatif pour recréer l'arborescence (en/fr/post...)
+                rel_dir = os.path.relpath(dirpath, SOURCE_DIR)
+                dest_dir = os.path.join(TEMP_NOTES, rel_dir)
+                
+                os.makedirs(dest_dir, exist_ok=True)
+                
+                with open(os.path.join(dest_dir, filename), 'w', encoding='utf-8') as out:
+                    out.write(new_content)
+
+print("✅ Terminé : Tous les fichiers ont été traités (code préservé).")
 ```
 
 > [!important] Note
