@@ -17,7 +17,7 @@ badges:
 thumbnail:
     src: 'images/digital-garden.jpg'
     alt: 'digital (futuriste/solarpunk) garden with a French old man'
-    object_position: '50% 100%'
+    object_position: '50% 50%'
     height: 250px
 images: ['images/digital-garden.jpg']
 ---
