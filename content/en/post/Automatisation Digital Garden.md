@@ -33,10 +33,18 @@ import re
 import shutil
 
 # Configuration
-SOURCE_DIR = '50 - Website'
-ATTACHMENTS_DIR = '03 - Resources'
-TEMP_NOTES = 'processed_notes'
-TEMP_IMAGES = 'processed_images'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
+SOURCE_DIR = os.path.join(ROOT_DIR, '50 - Digital Garden')
+ATTACHMENTS_DIR = os.path.join(ROOT_DIR, '03 - Resources')
+TEMP_NOTES = os.path.join(ROOT_DIR, 'processed_notes')
+TEMP_IMAGES = os.path.join(ROOT_DIR, 'processed_images')
+
+# Vérifie que les dossiers source existent
+if not os.path.isdir(SOURCE_DIR):
+    raise FileNotFoundError(f"SOURCE_DIR introuvable : {SOURCE_DIR}")
+if not os.path.isdir(ATTACHMENTS_DIR):
+    raise FileNotFoundError(f"ATTACHMENTS_DIR introuvable : {ATTACHMENTS_DIR}")
 
 # Nettoyage et création des dossiers de base
 for d in [TEMP_NOTES, TEMP_IMAGES]:
@@ -54,15 +62,7 @@ def process_content(content):
 
     content = re.sub(r'```[\s\S]*?```', save_code_block, content)
 
-    # 2. Transformation des Liens Obsidian [[Note]] -> Hugo ref
-    def replace_link(match):
-        note_name = match.group(1)
-        clean_name = note_name.split('|')[0]
-        return f'[{note_name}]({{{{< ref "{clean_name}.md" >}}}})'
-
-    content = re.sub(r'\[\[([^\]]+)\]\]', replace_link, content)
-
-    # 3. Transformation des Images ![[img.png]] -> Hugo path
+    # 2. Transformation des Images ![[img.png]] -> Hugo path
     images = re.findall(r'!\[\[(.*?)\]\]', content)
     for img in images:
         content = content.replace(f'![[{img}]]', f'![](/images/{img})')
@@ -70,26 +70,44 @@ def process_content(content):
         if os.path.exists(img_source):
             shutil.copy(img_source, TEMP_IMAGES)
 
-    # 4. Transformation des Callouts Obsidian -> Hugo Shortcode
-    # Regex : cherche "> [!type] Titre" suivi de toutes les lignes commençant par ">"
-    callout_pattern = r'(?:^> \[!(\w+)\] ?(.*)?(?:\n(?:>.*|$))*)'
+    # 3. Transformation des Liens Obsidian [[Note]] -> Hugo ref
+    def replace_link(match):
+        note_name = match.group(1)
+        clean_name = note_name.split('|')[0]
+        return f'[{note_name}]({{{{< ref "{clean_name}.md" >}}}})'
 
+    content = re.sub(r'\[\[([^\]]+)\]\]', replace_link, content)
+
+    # 4. Transformation des Callouts Obsidian -> Hugo Shortcode
     def replace_callout(match):
-        kind = match.group(1).lower()
-        title = match.group(2).strip() if match.group(2) else kind.capitalize()
-        
-        # Récupération du bloc complet et nettoyage des "> "
-        full_block = match.group(0)
-        lines = full_block.split('\n')
+        block = match.group(1)
+        lines = block.split('\n')
+        if not lines:
+            return block
+
+        first_line = lines[0].lstrip('> ').strip()
+        if not first_line.startswith('[!') or ']' not in first_line:
+            return block
+
+        type_end = first_line.find(']')
+        kind = first_line[2:type_end].lower()
+        title_part = first_line[type_end+1:].strip()
+        title = title_part if title_part else kind.capitalize()
+
         body_lines = []
-        for line in lines[1:]: # On ignore la première ligne [!type]
-            body_lines.append(line.lstrip('> ').strip())
-        
-        body_content = " ".join(body_lines).replace('"', '\\"') # Échappement des guillemets
-        
+        for line in lines[1:]:
+            if line.startswith('> '):
+                body_lines.append(line[2:].rstrip())
+            elif line.startswith('>'):
+                body_lines.append(line[1:].rstrip())
+            else:
+                body_lines.append(line.rstrip())
+
+        body_content = ' '.join(line.strip() for line in body_lines if line.strip()).replace('"', '\\"')
         return f'{{{{< callout kind="{kind}" title="{title}" content="{body_content}" >}}}}'
 
-    content = re.sub(callout_pattern, replace_callout, content, flags=re.MULTILINE)
+    callout_pattern = re.compile(r'(^> \[![^\]\n]+\].*(?:\n(?!\s*$).*)*)', flags=re.MULTILINE)
+    content = callout_pattern.sub(replace_callout, content)
 
     # 5. Restauration des blocs de code
     for i, block in enumerate(code_blocks):
@@ -116,7 +134,7 @@ for dirpath, dirnames, filenames in os.walk(SOURCE_DIR):
 print("✅ Terminé : Callouts convertis et fichiers MD traités.")
 ```
 
-{{< callout kind="important" title="Note" content="Need to work on callout also" >}}
+{{< callout kind="alert" title="Note" content="Need to work on callout also" >}}
 
 ## 3. The GitHub Actions Pipeline
 Deployment happens in two synchronized steps.
