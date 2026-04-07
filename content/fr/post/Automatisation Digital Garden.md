@@ -3,7 +3,23 @@ title: "Comment j'ai automatisé mon Digital Garden avec Obsidian, Hugo et Docke
 date: 2026-04-05
 draft: false
 tags: [Automation, Obsidian, Hugo, Docker, CI-CD]
+categories: [Homelab]
 showToc: true
+badges:
+  github:
+    flat: false
+    subject: GitHub
+    status: Check it on GitHub
+    icon: github
+    url: https://github.com/PapyConfig/digital-garden
+    color: grey
+    label: ""
+thumbnail:
+    src: 'images/digital-garden.jpg'
+    alt: 'digital (futuriste/solarpunk) garden with a French old man'
+    object_position: '50% 100%'
+    height: 250px
+images: ['images/digital-garden.jpg']
 ---
 # Mon Workflow : De la prise de note au déploiement Docker
 
