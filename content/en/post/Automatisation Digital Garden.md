@@ -116,8 +116,7 @@ for dirpath, dirnames, filenames in os.walk(SOURCE_DIR):
 print("✅ Terminé : Callouts convertis et fichiers MD traités.")
 ```
 
-> [!important] Note
-> Need to work on callout also
+{{< callout kind="important" title="Note" content="Need to work on callout also" >}}
 
 ## 3. The GitHub Actions Pipeline
 Deployment happens in two synchronized steps.
@@ -125,8 +124,7 @@ Deployment happens in two synchronized steps.
 ### Step 1: Synchronization (Obsidian Repository)
 When a `push` is detected, GitHub Actions runs the Python script and pushes clean files to the Hugo repository.
 
-> [!info] Note
-> This requires a `GH_PAT` (Personal Access Token) configured in the repository secrets.
+{{< callout kind="info" title="Note" content="This requires a `GH_PAT` (Personal Access Token) configured in the repository secrets." >}}
 
 ```yaml
 name: Push Processed Notes to Hugo

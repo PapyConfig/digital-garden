@@ -73,8 +73,7 @@ Le déploiement se fait en deux étapes synchronisées.
 ### Étape 1 : Synchronisation (Dépôt Obsidian)
 Dès qu'un `push` est détecté, GitHub Actions lance le script Python et pousse les fichiers propres vers le dépôt Hugo.
 
-> [!info] Note
-Cela nécessite un `GH_PAT` (Personal Access Token) configuré dans les secrets du repo.
+{{< callout kind="info" title="Note" content="Cela nécessite un `GH_PAT` (Personal Access Token) configuré dans les secrets du repo." >}}
 
 ```yaml
 name: Push Processed Notes to Hugo
