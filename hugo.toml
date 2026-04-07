@@ -24,9 +24,9 @@ enableRobotsTXT = true
 # https://gohugo.io/templates/internal/#configure-disqus
 # disqusShortname = ""
 
-# Google Analytics
-# https://gohugo.io/templates/internal/#google-analytics
-# googleAnalytics = ""
+[services]
+  [services.googleAnalytics]
+    id = 'G-Z53PHTR2FB'
 
 [params.author]
     name = "Léo Rohmer"
