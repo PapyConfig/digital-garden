@@ -47,4 +47,4 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.USER_LOWER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Trigger Webhook
-        run: curl -X POST -u "n8n:${{ secrets.WEBHOOK_PASSWORD }}" "https://n8n.rohmer.beer/webhook/762e85af-325b-4d5d-8729-1835dd0ca177"
+        run: curl -X GET -u "n8n:${{ secrets.WEBHOOK_PASSWORD }}" "https://n8n.rohmer.beer/webhook/762e85af-325b-4d5d-8729-1835dd0ca177"
