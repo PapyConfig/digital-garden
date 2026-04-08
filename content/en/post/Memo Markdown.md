@@ -93,8 +93,7 @@ Nope
 {{< callout 
     kind="nope"
     title="Nope"
-    content="You should do some \
-    research"
+    content="You should do some research"
 >}}
 
 
