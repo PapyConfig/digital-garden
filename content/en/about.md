@@ -1,42 +1,89 @@
+# Léo Rohmer
+**Systems and Networks Engineer**
+leo@rohmer.beer
+Alsace, France
+
 ---
-author: Lucas David Vadilho
-title: "About"
-description: "About heyo"
-date: 2023-08-01
+
+## Professional Profile
+My objective is to continue advising, architecting, and implementing network and systems solutions that best meet end-user needs (internal and/or external). I aim to deepen my expertise in information systems while exploring research and development in artificial intelligence and its integration into internal processes. Committed to work-life balance, I seek stability by establishing myself in Alsace while effectively contributing to dynamic team projects.
+
 ---
 
-{{< theme >}} is a responsive, minimalist, and pretty theme built for [hugo](https://gohugo.io/), based on Alexander Bilz's [Anatole](https://github.com/lxndrblz/anatole).
+## Professional Experience
 
-## Features
+### Networks and Systems Engineer
+**Foliateam (acquisition of e-Qual)** | *Jan. 2025 – Present (Poitiers, France)*
+* Current position in permanent contract.
+* Leading development, testing, validation, and production deployment with team training.
+* Conducting Proof of Concepts (PoC) related to product development activities.
+* Designing and implementing client network solutions, requirements analysis, and technical documentation.
+* Expert reference for multiple SD-WAN solutions and operational team support.
+* Participation in pre-sales support activities.
 
-- [x] Dark theme
-- [x] [Cover images](https://heyo-theme.oioipio.com/post/thumbnail/)
-- [x] [Pretty visualizations](https://heyo-theme.oioipio.com/post/sketches/) in the sidebar
-- [x] [Table of Contents](https://heyo-theme.oioipio.com/post/sketches/post/toc/) in the sidebar
-- [x] [Callout shortcode](https://heyo-theme.oioipio.com/post/callouts/)
-- [x] [Badges shortcode](https://heyo-theme.oioipio.com/post/badges/)
-- [x] [Support for custom CSS and JS](https://heyo-theme.oioipio.com/post/custom/)
-- [x] [Multilingual support](https://gohugo.io/content-management/multilingual/) (english and brazilian portuguese, for now)
-- [x] [Open Graph](https://gohugo.io/templates/internal/#configure-open-graph) support
+### Systems and Networks Engineer / Solution Engineering
+**e-Qual** | *Aug. 2023 – Dec. 2024 (1 year 5 months)*
+* Leading development, testing, validation, and production deployment with team training.
+* Conducting Proof of Concepts (PoC) related to product development activities.
+* Designing and implementing client network/systems solutions, requirements analysis, and technical documentation.
+* Expert reference for SSR SD-WAN solution and operational team support.
 
-# Quickstart
+### Network and Systems Engineer (Internship)
+**e-Qual** | *Feb. 2023 – Aug. 2023 (7 months)*
+* Internship focused on network protocols and SD-WAN.
 
-To try the `exampleSite` you just need to:
+### Assistant, Webmaster and Systems & Networks Administrator
+**EPITA** | *Jan. 2022 – Jan. 2023 (1 year 1 month)*
+* Administration for the TCOM major (Telecommunications).
 
-```sh
-git clone https://github.com/LucasVadilho/heyo-hugo-theme heyo
-cd heyo/exampleSite && hugo server --themesDir ../..
-```
-<img align="right" width="200" style="padding-left: 20px" alt="scan me to preview on mobile" src="https://github.com/LucasVadilho/heyo-hugo-theme/assets/7459017/6642e5b9-9b90-460c-9d45-18ae94bb5a6e"/>
+### Web Application Developer (Internship)
+**Mâche** | *Sept. 2021 – Jan. 2022 (5 months)*
+* Web application development in Paris.
 
-# Live preview
+### Assembly Operator
+**SOCOMEC FACTORY 3** | *2019 & 2020 (4 months)*
+* Assembly of various UPS and electrical cabinet sub-assemblies on production line.
+* Timed work requiring effective team coordination.
 
-You can check a live preview at [heyo-theme.oioipio.com](http://heyo-theme.oioipio.com/). Also, scan the QR code if you want to preview on mobile!
+---
 
-# Credits & thanks
+## Technical Skills
 
-- 🖼️ All the images in `exampleSite` were graciously provided by TD Vadilho, you can check his work on the [website](https://www.tdvadilho.com?utm_source=heyo) and [YouTube](https://www.youtube.com/channel/UCu4GsGZTk3wqYWbYhfo3rzw)!
-- 🔡 Fonts!
-  - Computer Modern from [CTAN](https://ctan.org/pkg/cm-unicode) (SIL Open Font License)
-  - FandolKai-Regular from [CTAN](https://ctan.org/tex-archive/fonts/fandol) (GNU General Public License)
-- 🍍 Thanks to Alex Bilz, for the original [Anatole](https://github.com/lxndrblz/anatole)
+* **Networks:** Cabling with GNS3, network protocols, and SD-WAN.
+* **Systems & Cloud:** Server configuration with Proxmox and VirtualBox.
+* **DevOps:** Containerization via Docker, Kubernetes, and Rancher.
+* **Development:** Creation of a UNIX shell in C language.
+
+---
+
+## Education
+
+* **EPITA (Paris)** | *2020 – 2023*
+    * Engineering Degree in Computer Science (Engineer Cycle started in 2020).
+    * Specialization: TCOM - Networks, Systems, Finance, Security
+* **Université du Québec à Chicoutimi (Canada)** | *2020*
+    * International semester completed.
+* **Preparatory Class** | *2018 – 2020 (Strasbourg)*
+    * Preparatory cycle completed.
+* **Lycée Jean-Baptiste Schwilgué** | *2015 – 2018*
+    * Scientific Baccalaureate (S-SI), Honors.
+    * Computer Science and Digital Sciences option.
+
+---
+
+## Certifications & Languages
+
+* **English:** TOEIC 950.
+* **German:** KMK Certification - Level B1.
+* **Networks:** Juniper ISSR, Extreme Networks - Switching
+* **Security:** ANSSI MOOC on digital security.
+* **Driving License:** Category B.
+
+---
+
+## Hobbies and Interests
+
+* **DIY & Mechanics**.
+* **Homelab**.
+* **Interior renovation**.
+

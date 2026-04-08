@@ -1,42 +1,88 @@
+# Léo Rohmer
+**Ingénieur Systèmes et Réseaux**
+leo@rohmer.beer
+Alsace, France
+
 ---
-author: Lucas David Vadilho
-title: "About"
-description: "About heyo"
-date: 2023-08-01
+
+## Profil Professionnel
+Mon objectif est de continuer à conseiller, architecturer et implémenter des solutions réseaux et systèmes qui répondent au mieux aux besoins finaux des clients (internes et/ou externes). Je souhaite approfondir mes compétences en systèmes d'information tout en explorant la recherche et développement en intelligence artificielle et à son instricption dans des processus internes. Attaché à un équilibre personel/professionnel, je recherche une stabilité en revenant m'établir en Alsace, tout en contribuant efficacement aux projets d'équipes dynamiques.
+
 ---
 
-{{< theme >}} is a responsive, minimalist, and pretty theme built for [hugo](https://gohugo.io/), based on Alexander Bilz's [Anatole](https://github.com/lxndrblz/anatole).
+## Expériences Professionnelles
 
-## Features
+### Ingénieur Réseaux et Systèmes
+**Foliateam (rachat e-Qual)** | *Janv. 2025 – Présent (Poitiers, France)*
+* Poste actuel en CDI.
+* Pilotage de développement, tests, recettes et mise en production avec formation des équipes.
+* Réalisation de Proof of Concepts (PoC) liés aux activités de développement produit.
+* Conception et implémentation de solutions réseaux clients, analyse des besoins et rédaction de documents techniques.
+* Référent "expert" de plusieurs solutions SD-WAN et support aux équipes opérationnelles.
+* Participation à des actions de support avant-vente.
 
-- [x] Dark theme
-- [x] [Cover images](https://heyo-theme.oioipio.com/post/thumbnail/)
-- [x] [Pretty visualizations](https://heyo-theme.oioipio.com/post/sketches/) in the sidebar
-- [x] [Table of Contents](https://heyo-theme.oioipio.com/post/sketches/post/toc/) in the sidebar
-- [x] [Callout shortcode](https://heyo-theme.oioipio.com/post/callouts/)
-- [x] [Badges shortcode](https://heyo-theme.oioipio.com/post/badges/)
-- [x] [Support for custom CSS and JS](https://heyo-theme.oioipio.com/post/custom/)
-- [x] [Multilingual support](https://gohugo.io/content-management/multilingual/) (english and brazilian portuguese, for now)
-- [x] [Open Graph](https://gohugo.io/templates/internal/#configure-open-graph) support
+### Ingénieur Systèmes et Réseaux / Solution Ingénierie
+**e-Qual** | *Août 2023 – Déc. 2024 (1 an 5 mois)*
+* Pilotage de développement, tests, recettes et mise en production avec formation des équipes.
+* Réalisation de Proof of Concepts (PoC) liés aux activités de développement produit.
+* Conception et implémentation de solutions réseaux/systèmes clients, analyse des besoins et rédaction de documents techniques.
+* Référent expert de la solution SD-WAN SSR et support aux équipes opérationnelles.
 
-# Quickstart
+### Ingénieur réseau et systèmes (Stage)
+**e-Qual** | *Févr. 2023 – Août 2023 (7 mois)*
+* Stage axé sur les protocoles réseau et le SD-WAN.
 
-To try the `exampleSite` you just need to:
+### Assistant, WebMaster et Administrateur Systèmes et Réseaux
+**EPITA** | *Janv. 2022 – Janv. 2023 (1 an 1 mois)*
+* Administration pour la majeure TCOM (Télécommunications).
 
-```sh
-git clone https://github.com/LucasVadilho/heyo-hugo-theme heyo
-cd heyo/exampleSite && hugo server --themesDir ../..
-```
-<img align="right" width="200" style="padding-left: 20px" alt="scan me to preview on mobile" src="https://github.com/LucasVadilho/heyo-hugo-theme/assets/7459017/6642e5b9-9b90-460c-9d45-18ae94bb5a6e"/>
+### Développeur applications web (Stage)
+**Mâche** | *Sept. 2021 – Janv. 2022 (5 mois)*
+* Développement d'applications web à Paris.
 
-# Live preview
+### Opérateur de montage
+**SOCOMEC USINE 3** | *2019 & 2020 (4 mois)*
+* Montage de différents sous-ensembles d'onduleurs et d'armoires électriques sur chaîne de production.
+* Travail en temps chronométré nécessitant une coordination d'équipe efficace.
 
-You can check a live preview at [heyo-theme.oioipio.com](http://heyo-theme.oioipio.com/). Also, scan the QR code if you want to preview on mobile!
+---
 
-# Credits & thanks
+## Compétences Techniques
 
-- 🖼️ All the images in `exampleSite` were graciously provided by TD Vadilho, you can check his work on the [website](https://www.tdvadilho.com?utm_source=heyo) and [YouTube](https://www.youtube.com/channel/UCu4GsGZTk3wqYWbYhfo3rzw)!
-- 🔡 Fonts!
-  - Computer Modern from [CTAN](https://ctan.org/pkg/cm-unicode) (SIL Open Font License)
-  - FandolKai-Regular from [CTAN](https://ctan.org/tex-archive/fonts/fandol) (GNU General Public License)
-- 🍍 Thanks to Alex Bilz, for the original [Anatole](https://github.com/lxndrblz/anatole)
+* **Réseaux :** Câblage avec GNS3, protocoles réseau et SD-WAN.
+* **Systèmes & Cloud :** Configuration de serveurs avec Proxmox et VirtualBox.
+* **DevOps :** Containerisation via Docker, Kubernetes et Rancher.
+* **Développement :** Création d'un shell UNIX en langage C.
+
+---
+
+## Formation
+
+* **EPITA (Paris)** | *2020 – 2023*
+    * Diplôme d'Ingénieur en Informatique (Cycle Ingénieur débuté en 2020).
+    * Spécialité TCOM - Réseaux, Systèmes, Finance, Sécurité
+* **Université du Québec à Chicoutimi (Canada)** | *2020*
+    * Semestre à l'international validé.
+* **Classe préparatoire** | *2018 – 2020 (Strasbourg)*
+    * Cycle préparatoire validé.
+* **Lycée Jean-Baptiste Schwilgué** | *2015 – 2018*
+    * Baccalauréat Scientifique (S-SI), Mention Bien.
+    * Option Informatique et Sciences du Numérique.
+
+---
+
+## Certifications & Langues
+
+* **Anglais :** TOEIC 950.
+* **Allemand :** Certification KMK - Niveau B1.
+* **Réseaux :** Juniper ISSR, Extreme Networks - Switching
+* **Sécurité :** MOOC de l'ANSSI sur la sécurité numérique.
+* **Permis :** Permis B.
+
+---
+
+## Loisirs et Intérêts
+
+* **Bricolage & Mécanique**.
+* **Homelab**.
+* **Réaménagement d'intérieurs**.
