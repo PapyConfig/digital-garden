@@ -1,3 +1,10 @@
+---
+title: My Curriculum Vitae
+date: 2026-04-05
+draft: false
+process: false
+---
+
 # Léo Rohmer
 **Ingénieur Systèmes et Réseaux**  
 leo@rohmes.fr  
@@ -7,7 +14,7 @@ Alsace, France
 
 ## Profil Professionnel
 Mon objectif est de continuer à conseiller, architecturer et implémenter des solutions réseaux et systèmes qui répondent au mieux aux besoins finaux des clients (internes et/ou externes).  
-Je souhaite approfondir mes compétences en systèmes d'information tout en explorant la recherche et développement en intelligence artificielle et à son instricption dans des processus internes.  
+Je souhaite approfondir mes compétences en systèmes d'information tout en explorant la recherche et développement en intelligence artificielle et à son implication dans des processus internes.  
 Attaché à un équilibre personel/professionnel, je recherche une stabilité en revenant m'établir en Alsace, tout en contribuant efficacement aux projets d'équipes dynamiques.
 
 ---

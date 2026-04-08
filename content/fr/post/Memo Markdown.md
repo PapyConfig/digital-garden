@@ -9,8 +9,10 @@ tags:
   - theme
   - shortcodes
   - markdown
+process: false
 ---
 ## Obsidian vs Digital Garden
+<!--more-->
 #### Callouts
 Obsidian : 
 ```markdown
@@ -29,29 +31,31 @@ callout
 ```
 
 Style Obsidian : 
-{{< callout kind="note" title="Note" content="Test OK" >}}
+> [!note]
+> Test
+> OK
 
-{{< callout kind="abstract" title="Abstract, Summary, Tldr" content="" >}}
+> [!abstract] Abstract, Summary, Tldr
 
-{{< callout kind="info" title="Info, Todo" content="" >}}
+> [!info] Info, Todo
 
-{{< callout kind="tip" title="Tip, Hint, Important" content="" >}}
+> [!tip] Tip, Hint, Important
 
-{{< callout kind="success" title="Success, Check, Done" content="" >}}
+> [!success] Success, Check, Done
 
-{{< callout kind="question" title="Question, Help, FAQ" content="" >}}
+> [!question] Question, Help, FAQ
 
-{{< callout kind="warning" title="Warning, Caution, Attention" content="" >}}
+> [!warning] Warning, Caution, Attention
 
-{{< callout kind="failure" title="Failure, Fail, Missing" content="" >}}
+> [!failure] Failure, Fail, Missing
 
-{{< callout kind="danger" title="Danger, Error" content="" >}}
+> [!danger] Danger, Error
 
-{{< callout kind="bug" title="Bug" content="" >}}
+> [!bug]
 
-{{< callout kind="example" title="Example" content="" >}}
+> [!example]
 
-{{< callout kind="quote" title="Quote, Cite" content="" >}}
+> [!quote] Quote, Cite
 
 VS Style Digital Garden : 
 Info

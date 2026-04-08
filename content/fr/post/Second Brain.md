@@ -1,10 +1,14 @@
 ---
-title: "Mon Second Cerveau"
+title: Mon Second Cerveau
 date: 2026-04-05
 draft: false
-tags: [Obsidian, Markdown, OpenCode, Automation]
-categories: [LifeOS]
-showToc: false
+tags:
+  - Obsidian
+  - Markdown
+  - OpenCode
+  - Automation
+categories:
+  - LifeOS
 badges:
   github:
     flat: false
@@ -15,11 +19,13 @@ badges:
     color: grey
     label: ""
 thumbnail:
-  src: 'images/second-brain.jpg'
-  alt: 'second brain with ai'
-  object_position: '50% 50%'
+  src: images/second-brain.jpg
+  alt: second brain with ai
+  object_position: 50% 50%
   height: 250px
-images: ['images/second-brain.jpg']
+images:
+  - images/second-brain.jpg
+process: true
 ---
 
 # 🧠 Du chaos mental au jardin numérique

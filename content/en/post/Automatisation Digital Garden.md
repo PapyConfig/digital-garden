@@ -1,9 +1,15 @@
 ---
-title: "How I Automated My Digital Garden with Obsidian, Hugo, and Docker"
+title: How I Automated My Digital Garden with Obsidian, Hugo, and Docker
 date: 2026-04-05
 draft: false
-tags: [Automation, Obsidian, Hugo, Docker, CI-CD]
-categories: [Homelab]
+tags:
+  - Automation
+  - Obsidian
+  - Hugo
+  - Docker
+  - CI-CD
+categories:
+  - Homelab
 showToc: true
 badges:
   github:
@@ -15,11 +21,13 @@ badges:
     color: grey
     label: ""
 thumbnail:
-    src: 'images/digital-garden.jpg'
-    alt: 'digital (futuriste/solarpunk) garden with a French old man'
-    object_position: '50% 50%'
-    height: 250px
-images: ['images/digital-garden.jpg']
+  src: images/digital-garden.jpg
+  alt: digital (futuriste/solarpunk) garden with a French old man
+  object_position: 50% 50%
+  height: 250px
+images:
+  - images/digital-garden.jpg
+process: true
 ---
 # My Workflow: From Note-Taking to Docker Deployment
 
@@ -41,7 +49,7 @@ I chose to separate my work environment from my production environment using two
 ---
 
 ## 2. The Conversion Script (The Translator)
-Obsidian uses `[WikiLinks]({{< ref "WikiLinks.md" >}})` and a centralized image folder. Hugo prefers standard Markdown. This Python script, placed in the **Second Brain**, bridges the two.
+Obsidian uses `[[WikiLinks]]` and a centralized image folder. Hugo prefers standard Markdown. This Python script, placed in the **Second Brain**, bridges the two.
 
 ```python
 import os

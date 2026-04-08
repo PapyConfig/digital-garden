@@ -1,9 +1,15 @@
 ---
-title: "Comment j'ai automatisé mon Digital Garden avec Obsidian, Hugo et Docker"
+title: Comment j'ai automatisé mon Digital Garden avec Obsidian, Hugo et Docker
 date: 2026-04-05
 draft: false
-tags: [Automation, Obsidian, Hugo, Docker, CI-CD]
-categories: [Homelab]
+tags:
+  - Automation
+  - Obsidian
+  - Hugo
+  - Docker
+  - CI-CD
+categories:
+  - Homelab
 showToc: true
 badges:
   github:
@@ -15,11 +21,13 @@ badges:
     color: grey
     label: ""
 thumbnail:
-    src: 'images/digital-garden.jpg'
-    alt: 'digital (futuriste/solarpunk) garden with a French old man'
-    object_position: '50% 50%'
-    height: 250px
-images: ['images/digital-garden.jpg']
+  src: images/digital-garden.jpg
+  alt: digital (futuriste/solarpunk) garden with a French old man
+  object_position: 50% 50%
+  height: 250px
+images:
+  - images/digital-garden.jpg
+process: true
 ---
 # Mon Workflow : De la prise de note au déploiement Docker
 
@@ -41,7 +49,7 @@ J'ai choisi de séparer mon environnement de travail de mon environnement de pro
 ---
 
 ## 2. Le script de conversion (Le traducteur)
-Obsidian utilise des liens `[WikiLinks]({{< ref "WikiLinks.md" >}})` et un dossier d'images centralisé. Hugo, lui, préfère le Markdown standard. Ce script Python, placé dans le **Second Brain**, fait le pont entre les deux.
+Obsidian utilise des liens `[[WikiLinks]]` et un dossier d'images centralisé. Hugo, lui, préfère le Markdown standard. Ce script Python, placé dans le **Second Brain**, fait le pont entre les deux.
 
 ```python
 import os
@@ -158,7 +166,8 @@ Le déploiement se fait en deux étapes synchronisées.
 ### Étape 1 : Synchronisation (Dépôt Obsidian)
 Dès qu'un `push` est détecté, GitHub Actions lance le script Python et pousse les fichiers propres vers le dépôt Hugo.
 
-{{< callout kind="info" title="Note" content="Cela nécessite un `GH_PAT` (Personal Access Token) configuré dans les secrets du repo." >}}
+{{< callout kind="info" title="Note" content="" >}}
+Cela nécessite un `GH_PAT` (Personal Access Token) configuré dans les secrets du repo.
 
 ```yaml
 name: Push Processed Notes to Hugo
