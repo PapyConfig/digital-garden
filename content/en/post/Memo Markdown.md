@@ -85,14 +85,15 @@ Alert
 {{< callout 
     kind="alert"
     title="Stop messing with me!"
-    content="Just tell me the value"
+    content="Just tell me the value\nTest"
 >}}
 
 Nope
 {{< callout 
     kind="nope"
     title="Nope"
-    content="You should do some research"
+    content="You should do some \
+    research"
 >}}
 
 
