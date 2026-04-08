@@ -1,11 +1,9 @@
 ---
-title: My Curriculum Vitae
+title: Léo Rohmer - Curriculum Vitae
 date: 2026-04-05
 draft: false
 process: false
 ---
-
-# Léo Rohmer
 **Ingénieur Systèmes et Réseaux**  
 leo@rohmes.fr  
 Alsace, France  

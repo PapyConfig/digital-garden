@@ -1,7 +1,7 @@
 ---
 author: Léo Rohmer
 title: Callout shortcode
-date: 2026-04-05
+date: 2025-04-05
 description: "How to use callouts : obsidian vs heyo"
 categories:
   - Memo
