@@ -86,7 +86,7 @@ url = "mailto:leo@rohmes.fr"
     [languages.en]
         languageCode = "en"
         contentDir = "content/en"
-        weight = 1
+        weight = 2
         languageName = "en"
         [languages.en.menus]
             [[languages.en.menus.main]]
@@ -104,7 +104,7 @@ url = "mailto:leo@rohmes.fr"
     [languages.fr]
         languageCode = "fr"
         contentDir = "content/fr"
-        weight = 2
+        weight = 1
         languageName = "fr"
         [languages.fr.menus]
             [[languages.fr.menus.main]]
