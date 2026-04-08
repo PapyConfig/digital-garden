@@ -30,13 +30,7 @@ Committed to work-life balance, I seek stability by establishing myself in Alsac
 {{< callout 
     kind="info"
     title="**Foliateam (acquisition of e-Qual)** \| *Jan. 2025 – Present (Poitiers, France)*"
-    content=|
-    "* Leading development, testing, validation, and production deployment with team training.
-    * Conducting Proof of Concepts (PoC) related to product development activities.
-    * Designing and implementing client network solutions, requirements analysis, and technical documentation.
-    * Expert reference for multiple SD-WAN solutions and operational team support.
-    * Participation in pre-sales support activities.
-    * Conducting Proof of Concepts (PoC) related to product development activities."
+    content="* Leading development, testing, validation, and production deployment with team training.<br>* Conducting Proof of Concepts (PoC) related to product development activities.<br>* Designing and implementing client network solutions, requirements analysis, and technical documentation.<br>* Expert reference for multiple SD-WAN solutions and operational team support.<br>* Participation in pre-sales support activities.<br>* Conducting Proof of Concepts (PoC) related to product development activities."
 >}}
 
 **Foliateam (acquisition of e-Qual)** | *Jan. 2025 – Present (Poitiers, France)*
