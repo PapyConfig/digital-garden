@@ -9,7 +9,7 @@ refLinksErrorLevel = "WARNING"
     extended = true
     min = "0.59.1"
 
-languageCode = "en"
+languageCode = "fr"
 defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = false
 summarylength = 100
