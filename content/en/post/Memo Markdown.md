@@ -103,7 +103,6 @@ Note
     title="Research"
     content="The speed of lights is _exactly equal_ to 299,792,458 m/s"
 >}}
->
 
 ## Classique
 Pour faire un retour à la ligne, il faut laisser un espace à la fin d'un paragraph et revenir à la ligne.
