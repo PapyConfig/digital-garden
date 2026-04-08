@@ -10,7 +10,7 @@ refLinksErrorLevel = "WARNING"
     min = "0.59.1"
 
 languageCode = "en"
-defaultContentLanguage = "en"
+defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = false
 summarylength = 100
 enableEmoji = true
@@ -98,7 +98,7 @@ url = "mailto:leo@rohmes.fr"
                 pageRef = "/post"
                 weight = 2
             [[languages.en.menus.main]]
-                name = "Curriculum Vitea"
+                name = "Curriculum Vitae"
                 pageRef = "/about"
                 weight = 3
     [languages.fr]
