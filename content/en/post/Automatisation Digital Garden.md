@@ -164,8 +164,7 @@ Deployment happens in two synchronized steps.
 ### Step 1: Synchronization (Obsidian Repository)
 When a `push` is detected, GitHub Actions runs the Python script and pushes clean files to the Hugo repository.
 
-> [!info] Note
-> This requires a `GH_PAT` (Personal Access Token) configured in the repository secrets.
+{{< callout kind="info" title="Note" content="This requires a `GH_PAT` (Personal Access Token) configured in the repository secrets." >}}
 
 ```yaml
 name: Push Processed Notes to Hugo
@@ -290,8 +289,7 @@ jobs:
         run: curl -X GET -u "n8n:${{ secrets.WEBHOOK_PASSWORD }}" "https://n8n.rohmer.beer/webhook/762e85af-325b-4d5d-8729-1835dd0ca177"
 ```
 
-> [!info] Webhook
-> You will notice that I use a webhook to restart a docker-compose stack to repull the latest available image of the Digital Garden to automatically update the website.
+{{< callout kind="info" title="Webhook" content="You will notice that I use a webhook to restart a docker-compose stack to repull the latest available image of the Digital Garden to automatically update the website." >}}
 
 ---
 
