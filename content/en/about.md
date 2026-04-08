@@ -33,7 +33,8 @@ Committed to work-life balance, I seek stability by establishing myself in Alsac
     content="\
     * Leading development, testing, validation, and production deployment with team training."
 >}}
-n* Conducting Proof of Concepts (PoC) related to product development activities.\n* Designing and implementing client network solutions, requirements analysis, and technical documentation.\n* Expert reference for multiple SD-WAN solutions and operational team support.\n* Participation in pre-sales support activities.\n* Conducting Proof of Concepts (PoC) related to product development activities.
+
+* Leading development, testing, validation, and production deployment with team training.\n* Conducting Proof of Concepts (PoC) related to product development activities.\n* Designing and implementing client network solutions, requirements analysis, and technical documentation.\n* Expert reference for multiple SD-WAN solutions and operational team support.\n* Participation in pre-sales support activities.\n* Conducting Proof of Concepts (PoC) related to product development activities.
 #### Systems and Networks Engineer / Solution Engineering
 > [!note] **e-Qual** | *Aug. 2023 – Dec. 2024 (1 year 5 months)*
 > * Leading development, testing, validation, and production deployment with team training.
