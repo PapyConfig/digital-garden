@@ -2,12 +2,7 @@
 title: My Curriculum Vitae
 date: 2026-04-05
 draft: false
-showToc: false
 process: false
-sketch:
-    enable: true
-    displayOptions: false
-    use: graph
 ---
 
 # Léo Rohmer

@@ -9,7 +9,6 @@ tags:
   - Automation
 categories:
   - LifeOS
-showToc: false
 badges:
   github:
     flat: false

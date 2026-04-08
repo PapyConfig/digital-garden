@@ -1,16 +1,9 @@
 ---
-title: My Curriculum Vitae
+title: Léo Rohmer - Curriculum Vitae
 date: 2026-04-05
 draft: false
-showToc: false
 process: false
-sketch:
-    enable: true
-    displayOptions: false
-    use: graph
 ---
-
-# Léo Rohmer
 **Systems and Networks Engineer**  
 leo@rohmes.fr  
 Alsace, France
@@ -25,7 +18,7 @@ Alsace, France
 
 ---
 
-## Professional Experience
+# Professional Experience
 
 #### Networks and Systems Engineer / Solution Engineering :
 {{< callout 
@@ -46,18 +39,24 @@ Alsace, France
     content="* Internship focused on building a reporting tool but quickly switched to network protocols and SD-WAN."
 >}}
 
-#### Assistant, Webmaster and Systems & Networks Administrator
-> [!note] **EPITA** | *Jan. 2022 – Jan. 2023 (1 year 1 month)*
-> * Administration for the TCOM major (Telecommunications).
+#### Scholar Experiences
+{{< callout 
+    kind="info"
+    title="**EPITA** | *Jan. 2022 – Jan. 2023 (1 year 1 month)*"
+    content="* Assistant, Webmaster and Systems & Networks Administrator for the TCOM major"
+>}}
 
-#### Web Application Developer (Internship)
-> [!note] **Mâche** | *Sept. 2021 – Jan. 2022 (5 months)*
-> * Web application development in Paris.
+{{< callout 
+    kind="info"
+    title="**Mâche** | *Sept. 2021 – Jan. 2022 (5 months)*"
+    content="* Web application development in Paris."
+>}}
 
-#### Assembly Operator
-> [!note] **SOCOMEC FACTORY 3** | *2019 & 2020 (4 months)*
-> * Assembly of various UPS and electrical cabinet sub-assemblies on production line.
-> * Timed work requiring effective team coordination.
+{{< callout 
+    kind="info"
+    title="**SOCOMEC FACTORY 3** | *2019 & 2020 (4 months)*"
+    content="* Assembly of various UPS and electrical cabinet sub-assemblies on production line.<br> * Timed work requiring effective team coordination."
+>}}
 
 ---
 
