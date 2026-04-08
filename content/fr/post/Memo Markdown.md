@@ -9,6 +9,7 @@ tags:
   - theme
   - shortcodes
   - markdown
+process: false
 ---
 ## Obsidian vs Digital Garden
 #### Callouts
