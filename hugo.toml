@@ -30,7 +30,7 @@ enableRobotsTXT = true
 
 [params.author]
     name = "Léo Rohmer"
-    email = "leo@rohmer.beer"
+    email = "leo@rohmes.fr"
 
 [params]
     title = "I'm Léo Rohmer"
@@ -83,24 +83,6 @@ title = "e-mail"
 url = "mailto:leo@rohmes.fr"
 
 [languages]
-    [languages.en]
-        languageCode = "en"
-        contentDir = "content/en"
-        weight = 2
-        languageName = "en"
-        [languages.en.menus]
-            [[languages.en.menus.main]]
-                name = "Home"
-                pageRef = "/"
-                weight = 1
-            [[languages.en.menus.main]]
-                name = "Docs"
-                pageRef = "/post"
-                weight = 2
-            [[languages.en.menus.main]]
-                name = "Curriculum Vitae"
-                pageRef = "/about"
-                weight = 3
     [languages.fr]
         languageCode = "fr"
         contentDir = "content/fr"
@@ -116,6 +98,24 @@ url = "mailto:leo@rohmes.fr"
                 pageRef = "/post"
                 weight = 2
             [[languages.fr.menus.main]]
+                name = "Curriculum Vitae"
+                pageRef = "/about"
+                weight = 3
+    [languages.en]
+        languageCode = "en"
+        contentDir = "content/en"
+        weight = 2
+        languageName = "en"
+        [languages.en.menus]
+            [[languages.en.menus.main]]
+                name = "Home"
+                pageRef = "/"
+                weight = 1
+            [[languages.en.menus.main]]
+                name = "Docs"
+                pageRef = "/post"
+                weight = 2
+            [[languages.en.menus.main]]
                 name = "Curriculum Vitae"
                 pageRef = "/about"
                 weight = 3

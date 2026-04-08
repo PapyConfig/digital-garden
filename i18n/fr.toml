@@ -12,10 +12,10 @@ other = "{{ .Count }} minutes"
 other = "Page Not Found"
 
 [page_does_not_exist]
-other = "Sorry, this page does not exist."
+other = "Désolé, la page n'existe pas."
 
 [head_back]
-other = "You head back to <a style=\"color:var(--a-color)\" href=\"{{ . }}\">homepage</a>."
+other = "Vous pouvez revenir sur <a style=\"color:var(--a-color)\" href=\"{{ . }}\">homepage</a>."
 
 [comments]
 other = "commentaires"
