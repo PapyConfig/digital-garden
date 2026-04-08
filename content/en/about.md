@@ -12,38 +12,23 @@ My objective is to continue advising, architecting, and implementing network and
 
 ## Professional Experience
 
-### Networks and Systems Engineer
-**Foliateam (acquisition of e-Qual)** | *Jan. 2025 – Present (Poitiers, France)*
-* Current position in permanent contract.
-* Leading development, testing, validation, and production deployment with team training.
-* Conducting Proof of Concepts (PoC) related to product development activities.
-* Designing and implementing client network solutions, requirements analysis, and technical documentation.
-* Expert reference for multiple SD-WAN solutions and operational team support.
-* Participation in pre-sales support activities.
+#### Networks and Systems Engineer
+{{< callout kind="note" title="**Foliateam (acquisition of e-Qual)** | *Jan. 2025 – Present (Poitiers, France)*" content="* Current position in permanent contract. * Leading development, testing, validation, and production deployment with team training. * Conducting Proof of Concepts (PoC) related to product development activities. * Designing and implementing client network solutions, requirements analysis, and technical documentation. * Expert reference for multiple SD-WAN solutions and operational team support. * Participation in pre-sales support activities. * Conducting Proof of Concepts (PoC) related to product development activities." >}}
 
-### Systems and Networks Engineer / Solution Engineering
-**e-Qual** | *Aug. 2023 – Dec. 2024 (1 year 5 months)*
-* Leading development, testing, validation, and production deployment with team training.
-* Conducting Proof of Concepts (PoC) related to product development activities.
-* Designing and implementing client network/systems solutions, requirements analysis, and technical documentation.
-* Expert reference for SSR SD-WAN solution and operational team support.
+#### Systems and Networks Engineer / Solution Engineering
+{{< callout kind="note" title="**e-Qual** | *Aug. 2023 – Dec. 2024 (1 year 5 months)*" content="* Leading development, testing, validation, and production deployment with team training. * Conducting Proof of Concepts (PoC) related to product development activities. * Designing and implementing client network/systems solutions, requirements analysis, and technical documentation. * Expert reference for SSR SD-WAN solution and operational team support." >}}
 
-### Network and Systems Engineer (Internship)
-**e-Qual** | *Feb. 2023 – Aug. 2023 (7 months)*
-* Internship focused on network protocols and SD-WAN.
+#### Network and Systems Engineer (Internship)
+{{< callout kind="note" title="**e-Qual** | *Feb. 2023 – Aug. 2023 (7 months)*" content="* Internship focused on network protocols and SD-WAN." >}}
 
-### Assistant, Webmaster and Systems & Networks Administrator
-**EPITA** | *Jan. 2022 – Jan. 2023 (1 year 1 month)*
-* Administration for the TCOM major (Telecommunications).
+#### Assistant, Webmaster and Systems & Networks Administrator
+{{< callout kind="note" title="**EPITA** | *Jan. 2022 – Jan. 2023 (1 year 1 month)*" content="* Administration for the TCOM major (Telecommunications)." >}}
 
-### Web Application Developer (Internship)
-**Mâche** | *Sept. 2021 – Jan. 2022 (5 months)*
-* Web application development in Paris.
+#### Web Application Developer (Internship)
+{{< callout kind="note" title="**Mâche** | *Sept. 2021 – Jan. 2022 (5 months)*" content="* Web application development in Paris." >}}
 
-### Assembly Operator
-**SOCOMEC FACTORY 3** | *2019 & 2020 (4 months)*
-* Assembly of various UPS and electrical cabinet sub-assemblies on production line.
-* Timed work requiring effective team coordination.
+#### Assembly Operator
+{{< callout kind="note" title="**SOCOMEC FACTORY 3** | *2019 & 2020 (4 months)*" content="* Assembly of various UPS and electrical cabinet sub-assemblies on production line. * Timed work requiring effective team coordination." >}}
 
 ---
 
