@@ -17,34 +17,34 @@ Alsace, France
 
 ---
 
-## Professional Profile
-My objective is to continue advising, architecting, and implementing network and systems solutions that best meet end-user needs (internal and/or external).  
-I aim to deepen my expertise in information systems while exploring research and development in artificial intelligence and its integration into internal processes.   
-Committed to work-life balance, I seek stability by establishing myself in Alsace while effectively contributing to dynamic team projects.
+{{< callout 
+    kind="note"
+    title="**Professional Profile**"
+	content="My objective is to continue advising, architecting, and implementing network and systems solutions that best meet end-user needs (internal and/or external).<br>I aim to deepen my expertise in information systems while exploring research and development in artificial intelligence and its integration into internal processes.<br>Committed to work-life balance, I seek stability by establishing myself in Alsace while effectively contributing to dynamic team projects."
+>}}
 
 ---
 
 ## Professional Experience
 
-#### Networks and Systems Engineer
+#### Networks and Systems Engineer / Solution Engineering :
 {{< callout 
     kind="info"
     title="**Foliateam (acquisition of e-Qual)** \| *Jan. 2025 – Present (Poitiers, France)*"
     content="* Leading development, testing, validation, and production deployment with team training.<br> * Conducting Proof of Concepts (PoC) related to product development activities.<br> * Designing and implementing client network solutions, requirements analysis, and technical documentation.<br> * Expert reference for multiple SD-WAN solutions and operational team support.<br> * Participation in pre-sales support activities.<br> * Conducting Proof of Concepts (PoC) related to product development activities."
 >}}
 
-**Foliateam (acquisition of e-Qual)** | *Jan. 2025 – Present (Poitiers, France)*
-* Leading development, testing, validation, and production deployment with team training.\n* Conducting Proof of Concepts (PoC) related to product development activities.\n* Designing and implementing client network solutions, requirements analysis, and technical documentation.\n* Expert reference for multiple SD-WAN solutions and operational team support.\n* Participation in pre-sales support activities.\n* Conducting Proof of Concepts (PoC) related to product development activities.
-#### Systems and Networks Engineer / Solution Engineering
-> [!note] **e-Qual** | *Aug. 2023 – Dec. 2024 (1 year 5 months)*
-> * Leading development, testing, validation, and production deployment with team training.
-> * Conducting Proof of Concepts (PoC) related to product development activities.
-> * Designing and implementing client network/systems solutions, requirements analysis, and technical documentation.
-> * Expert reference for SSR SD-WAN solution and operational team support.
+{{< callout 
+    kind="info"
+    title="**e-Qual** \| *Aug. 2023 – Dec. 2024 (1 year 5 months)*"
+    content="* Leading development, testing, validation, and production deployment with team training.<br> * Conducting Proof of Concepts (PoC) related to product development activities.<br> * Designing and implementing client network/systems solutions, requirements analysis, and technical documentation.<br> * Expert reference for SSR SD-WAN solution and operational team support."
+>}}
 
-#### Network and Systems Engineer (Internship)
-> [!note] **e-Qual** | *Feb. 2023 – Aug. 2023 (7 months)*
-> * Internship focused on network protocols and SD-WAN.
+{{< callout 
+    kind="info"
+    title="**e-Qual** \| *Feb. 2023 – Aug. 2023 (7 months)*"
+    content="* Internship focused on building a reporting tool but quickly switched to network protocols and SD-WAN."
+>}}
 
 #### Assistant, Webmaster and Systems & Networks Administrator
 > [!note] **EPITA** | *Jan. 2022 – Jan. 2023 (1 year 1 month)*
