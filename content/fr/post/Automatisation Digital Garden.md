@@ -41,7 +41,7 @@ J'ai choisi de séparer mon environnement de travail de mon environnement de pro
 ---
 
 ## 2. Le script de conversion (Le traducteur)
-Obsidian utilise des liens `[WikiLinks]({{< ref "WikiLinks.md" >}})` et un dossier d'images centralisé. Hugo, lui, préfère le Markdown standard. Ce script Python, placé dans le **Second Brain**, fait le pont entre les deux.
+Obsidian utilise des liens `[[WikiLinks]]` et un dossier d'images centralisé. Hugo, lui, préfère le Markdown standard. Ce script Python, placé dans le **Second Brain**, fait le pont entre les deux.
 
 ```python
 import os
@@ -158,7 +158,8 @@ Le déploiement se fait en deux étapes synchronisées.
 ### Étape 1 : Synchronisation (Dépôt Obsidian)
 Dès qu'un `push` est détecté, GitHub Actions lance le script Python et pousse les fichiers propres vers le dépôt Hugo.
 
-{{< callout kind="info" title="Note" content="Cela nécessite un `GH_PAT` (Personal Access Token) configuré dans les secrets du repo." >}}
+> [!info] Note
+Cela nécessite un `GH_PAT` (Personal Access Token) configuré dans les secrets du repo.
 
 ```yaml
 name: Push Processed Notes to Hugo
@@ -283,7 +284,8 @@ jobs:
         run: curl -X GET -u "n8n:${{ secrets.WEBHOOK_PASSWORD }}" "https://n8n.rohmer.beer/webhook/762e85af-325b-4d5d-8729-1835dd0ca177"
 ```
 
-{{< callout kind="info" title="Webhook" content="Vous remarquerez que j'utilise un webhook afin de relancer une stack docker-compose pour tirer à nouveau la dernière image disponible du Digital Garden et mettre à jour le site web automatiquement." >}}
+> [!info] Webhook
+> Vous remarquerez que j'utilise un webhook afin de relancer une stack docker-compose pour tirer à nouveau la dernière image disponible du Digital Garden et mettre à jour le site web automatiquement.
 
 ---
 
