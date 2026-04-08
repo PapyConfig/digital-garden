@@ -6,10 +6,8 @@ Alsace, France
 ---
 
 ## Professional Profile
-My objective is to continue advising, architecting, and implementing network and systems solutions that best meet end-user needs (internal and/or external).
-
-I aim to deepen my expertise in information systems while exploring research and development in artificial intelligence and its integration into internal processes. 
-
+My objective is to continue advising, architecting, and implementing network and systems solutions that best meet end-user needs (internal and/or external).  
+I aim to deepen my expertise in information systems while exploring research and development in artificial intelligence and its integration into internal processes.   
 Committed to work-life balance, I seek stability by establishing myself in Alsace while effectively contributing to dynamic team projects.
 
 ---
