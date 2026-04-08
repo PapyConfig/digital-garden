@@ -15,7 +15,19 @@ Committed to work-life balance, I seek stability by establishing myself in Alsac
 ## Professional Experience
 
 #### Networks and Systems Engineer
-{{< callout kind="note" title="**Foliateam (acquisition of e-Qual)** | *Jan. 2025 – Present (Poitiers, France)*" content="* Current position in permanent contract. * Leading development, testing, validation, and production deployment with team training. * Conducting Proof of Concepts (PoC) related to product development activities. * Designing and implementing client network solutions, requirements analysis, and technical documentation. * Expert reference for multiple SD-WAN solutions and operational team support. * Participation in pre-sales support activities. * Conducting Proof of Concepts (PoC) related to product development activities." >}}
+{{< callout 
+    kind="info"
+    title="**Foliateam (acquisition of e-Qual)** | *Jan. 2025 – Present (Poitiers, France)*"
+    content="
+* Current position in permanent contract.
+* Leading development, testing, validation, and production deployment with team training.
+* Conducting Proof of Concepts (PoC) related to product development activities.
+* Designing and implementing client network solutions, requirements analysis, and technical documentation.
+* Expert reference for multiple SD-WAN solutions and operational team support.
+* Participation in pre-sales support activities.
+* Conducting Proof of Concepts (PoC) related to product development activities.
+"
+>}}
 
 #### Systems and Networks Engineer / Solution Engineering
 {{< callout kind="note" title="**e-Qual** | *Aug. 2023 – Dec. 2024 (1 year 5 months)*" content="* Leading development, testing, validation, and production deployment with team training. * Conducting Proof of Concepts (PoC) related to product development activities. * Designing and implementing client network/systems solutions, requirements analysis, and technical documentation. * Expert reference for SSR SD-WAN solution and operational team support." >}}
